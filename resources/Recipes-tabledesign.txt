@@ -1,0 +1,4 @@
+// Recipes
+recipeId // partition key, string
+flavorName // string
+ingredients // list of strings

@@ -1,0 +1,3 @@
+com/amazon/ata/dynamodbtabledesign/ExtensionTest.java
+ com.amazon.ata.dynamodbtabledesign.ExtensionTest
+ com.amazon.ata.dynamodbtabledesign.ExtensionTest$SupplierSpy

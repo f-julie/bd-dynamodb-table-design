@@ -1,0 +1,103 @@
+Resources:
+  RecipesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      "AttributeDefinitions":
+        - "AttributeName": "recipeId"
+          "AttributeType": "S"
+      "KeySchema":
+        - "AttributeName": "recipeId"
+          "KeyType": "HASH"
+      BillingMode: PAY_PER_REQUEST
+      TableName: "Recipes"
+  LambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Path: "/"
+      Policies:
+        - PolicyName: dynamodbAccessRole
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:*
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - logs:*
+                Resource: "*"
+  InitFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        ZipFile: >
+          const AWS = require("aws-sdk");
+          const response = require('./cfn-response');
+          const docClient = new AWS.DynamoDB.DocumentClient();
+          exports.handler = function(event, context) {
+            console.log(JSON.stringify(event,null,2));
+            var params = {
+              RequestItems: {
+                "Recipes": [
+                  {
+                    PutRequest: {
+                      Item: {
+                        recipeId: "98375E9D-7D3E-4DBF-A5AC-C7800B608F8E",
+                        flavorName: "Vanilla",
+                        ingredients: ["CREAM", "EGGS", "SUGAR", "VANILLA_EXTRACT"]
+                      }
+                    }
+                  },
+                  {
+                    PutRequest: {
+                      Item: {
+                        recipeId: "DA9B6265-18D9-43CB-874C-567A05DC1F01",
+                        flavorName: "Chocolate",
+                        ingredients: ["CREAM", "EGGS", "SUGAR", "COCOA"]
+                      }
+                    }
+                  },
+                  {
+                    PutRequest: {
+                      Item: {
+                        recipeId: "E57C2419-8192-E83F-82CA-ADEF17239872",
+                        flavorName: "Strawberry",
+                        ingredients: ["CREAM", "EGGS", "SUGAR", "STRAWBERRY_SYRUP"]
+                      }
+                    }
+                  }
+                ]
+              }
+            };
+            docClient.batchWrite(params, function(err, data) {
+              if (err) {
+                response.send(event, context, "FAILED", {});
+              } else {
+                response.send(event, context, "SUCCESS", {});
+              }
+            });
+          };
+      Handler: index.handler
+      Role:
+        Fn::GetAtt: [ LambdaRole , "Arn" ]
+      # 2023-09-28: [bp] updated from nodejs12.x
+      Runtime: nodejs18.x
+      Timeout: 60
+  InitializeEventsTable:
+    Type: Custom::InitFunction
+    DependsOn: RecipesTable
+    Properties:
+      ServiceToken:
+        Fn::GetAtt: [ InitFunction , "Arn" ]
+      DynamoTableName:
+        Ref: RecipesTable

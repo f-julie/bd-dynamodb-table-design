@@ -1,0 +1,4 @@
+// Cartons
+cartonId // partition key, string
+flavorId // string
+scoopsRemaining // integer
