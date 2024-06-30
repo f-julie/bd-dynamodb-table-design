@@ -1,0 +1,16 @@
+Resources:
+  ReceiptsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      "AttributeDefinitions":
+        - "AttributeName": "date"
+          "AttributeType": "S"
+        - "AttributeName": "customerId"
+          "AttributeType": "S"
+      "KeySchema":
+        - "AttributeName": "date"
+          "KeyType": "HASH"
+        - "AttributeName": "customerId"
+          "KeyType": "RANGE"
+      BillingMode: PAY_PER_REQUEST
+      TableName: "Receipts"

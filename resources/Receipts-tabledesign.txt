@@ -1,0 +1,5 @@
+// Receipts
+date // partition key, string
+customerId // sort key, string
+totalAmount // number
+sundaesPurchased // list of strings
