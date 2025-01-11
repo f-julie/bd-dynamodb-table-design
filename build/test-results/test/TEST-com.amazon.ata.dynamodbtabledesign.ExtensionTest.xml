@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.amazon.ata.dynamodbtabledesign.ExtensionTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2022-01-21T18:38:38" hostname="Lambda-School-Jamies-MacBook-Pro.local" time="0.909">
+<testsuite name="com.amazon.ata.dynamodbtabledesign.ExtensionTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-01-11T15:31:08" hostname="DESKTOP-URGQT26" time="2.104">
   <properties/>
-  <testcase name="getSundae_withNonexistentFlavor_ignoresFlavor()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.82"/>
-  <testcase name="prepareFlavors_oneFlavor_prepareIceCreamCartonReceivesCorrectIngredients()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.015"/>
-  <testcase name="prepareFlavors_withFlavors_makeIceCreamCartonsReceivesCorrectIngredients()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.007"/>
-  <testcase name="getSundae_withFlavorOutOfStock_removesFlavor()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.002"/>
-  <testcase name="getSundae_withInStockFlavors_returnsSundaeWithAllFlavors()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.002"/>
-  <testcase name="prepareFlavors_withOneFlavor_makeIceCreamCartonsReceivesCorrectIngredients()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.004"/>
-  <testcase name="prepareFlavors_withAnInvalidFlavor_throwsException()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.01"/>
-  <testcase name="prepareFlavors_multipleFlavors_returnsCorrectNumberOfCartons()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.01"/>
-  <testcase name="iceCreamMaker_prepareIceCreamCarton_callsFunctionalInterface()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.028"/>
-  <testcase name="getSundae_withEmptyFlavor_returnsSundaeWithoutEmptyFlavor()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.003"/>
+  <testcase name="getSundae_withNonexistentFlavor_ignoresFlavor()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="1.722"/>
+  <testcase name="prepareFlavors_oneFlavor_prepareIceCreamCartonReceivesCorrectIngredients()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.035"/>
+  <testcase name="prepareFlavors_withFlavors_makeIceCreamCartonsReceivesCorrectIngredients()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.026"/>
+  <testcase name="getSundae_withFlavorOutOfStock_removesFlavor()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.047"/>
+  <testcase name="getSundae_withInStockFlavors_returnsSundaeWithAllFlavors()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.006"/>
+  <testcase name="prepareFlavors_withOneFlavor_makeIceCreamCartonsReceivesCorrectIngredients()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.01"/>
+  <testcase name="prepareFlavors_withAnInvalidFlavor_throwsException()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.044"/>
+  <testcase name="prepareFlavors_multipleFlavors_returnsCorrectNumberOfCartons()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.011"/>
+  <testcase name="iceCreamMaker_prepareIceCreamCarton_callsFunctionalInterface()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.125"/>
+  <testcase name="getSundae_withEmptyFlavor_returnsSundaeWithoutEmptyFlavor()" classname="com.amazon.ata.dynamodbtabledesign.ExtensionTest" time="0.055"/>
   <system-out><![CDATA[Mixing ingredients: [CREAM, SUGAR, EGGS, CHOCOLATE]
 Freezing!
 Mixing ingredients: [CREAM, SUGAR, EGGS, VANILLA]
